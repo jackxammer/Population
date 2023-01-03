@@ -25,7 +25,7 @@ public class Main {
                 .filter(p -> p.getAge() >= 18 && p.getAge() <= 27)
                 .map(p -> p.getFamily())
                 .collect(Collectors.toList());
-        //System.out.println("\nПризыву подлежат:\n" + callToArms);
+        System.out.println("\nПризыву подлежат:\n" + callToArms);
 
         List<String> workers = persons.stream()
                 .filter(p -> p.getAge() <= 65 && p.getAge() >= 14)
