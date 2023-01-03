@@ -28,8 +28,17 @@ public class Main {
         System.out.println("\nПризыву подлежат:\n" + callToArms);
 
         List<String> workers = persons.stream()
-                .filter(p -> p.getAge() <= 65 && p.getAge() >= 14)
+                .filter(p -> p.getAge() >= 14)
                 .filter(p -> p.getEducation().equals(Education.HIGHER))
+                .filter(p -> {
+                            if (p.getSex().equals(Sex.MAN) && p.getAge() <= 65) {
+                                return true;
+                            } else if (p.getSex().equals(Sex.WOMAN) && p.getAge() <= 60) {
+                                return true;
+                            }
+                            return false;
+                        }
+                )
                 .sorted(Comparator.comparing(Person::getFamily))
                 .map(p -> p.toString())
                 .collect(Collectors.toList());
