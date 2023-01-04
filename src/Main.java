@@ -30,12 +30,7 @@ public class Main {
         List<String> workers = persons.stream()
                 .filter(p -> p.getAge() >= 14)
                 .filter(p -> p.getEducation().equals(Education.HIGHER))
-                .filter(p -> {
-                            if ((p.getSex().equals(Sex.MAN) && p.getAge() <= 65) || (p.getSex().equals(Sex.WOMAN) && p.getAge() <= 60)) {
-                                return true;
-                            }
-                            return false;
-                        }
+                .filter(p -> ((p.getSex().equals(Sex.MAN) && p.getAge() <= 65) || (p.getSex().equals(Sex.WOMAN) && p.getAge() <= 60))
                 )
                 .sorted(Comparator.comparing(Person::getFamily))
                 .map(p -> p.toString())
@@ -44,6 +39,5 @@ public class Main {
         for (String p : workers) {
             System.out.println(p);
         }
-
     }
 }
