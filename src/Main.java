@@ -31,9 +31,7 @@ public class Main {
                 .filter(p -> p.getAge() >= 14)
                 .filter(p -> p.getEducation().equals(Education.HIGHER))
                 .filter(p -> {
-                            if (p.getSex().equals(Sex.MAN) && p.getAge() <= 65) {
-                                return true;
-                            } else if (p.getSex().equals(Sex.WOMAN) && p.getAge() <= 60) {
+                            if ((p.getSex().equals(Sex.MAN) && p.getAge() <= 65) || (p.getSex().equals(Sex.WOMAN) && p.getAge() <= 60)) {
                                 return true;
                             }
                             return false;
